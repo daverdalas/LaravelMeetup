@@ -28,3 +28,9 @@ Route::namespace('Admin')
     ->group(function () {
         Route::resource('users', 'UserController');
     });
+
+Route::get('users-bad-json', 'JsonController@badIndex');
+
+Route::get('users-good-json', 'JsonController@goodIndex');
+
+Route::get('users-good-json-resources', 'JsonController@goodIndexResources');
