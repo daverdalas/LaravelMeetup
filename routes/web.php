@@ -34,3 +34,13 @@ Route::get('users-bad-json', 'JsonController@badIndex');
 Route::get('users-good-json', 'JsonController@goodIndex');
 
 Route::get('users-good-json-resources', 'JsonController@goodIndexResources');
+
+Route::get('test-app-state', function () {
+    $app = app();
+    if (isset($app['test'])) {
+        $app['test'] += 2;
+    } else {
+        $app['test'] = 2;
+    }
+    return response()->json(['test' => $app['test']]);
+});
